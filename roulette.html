@@ -20,208 +20,271 @@
 	<!-- icon -->
 	<link rel="icon" href="img\icon.ico"/>
 
+	<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
 	<title>Roulette With Friends!</title>
 
 </head>
 
 <body>
 	<div id="id_DivTable">
-		<!-- if javascript isn't enabled-->
-		<noscript>Please enable javascript</noscript>
-		
-		<h1>Roulette with Friends</h1>
+		<section>
+			<!-- if javascript isn't enabled-->
+			<noscript>Please enable javascript</noscript>
+			
+			<h1>Roulette with Friends</h1>
+		</section>
+		<hr>
+		<section id="id_RouletteTableContainer">
+			<br>
+			<table id="id_RouletteTable">
+				<!--<script>drawTable();</script>-->
+				<tbody>
+					<tr>
+						<td></td>
+						<!-- top border -->
+						<td colspan="25" class="cell_2H"></td>
+					</tr>
+					<!-- 0 - 36 -->
+					<tr>
+						<!-- left border -->
+						<td rowspan="5" class="cell_2V"></td>
+
+						<td id="0" class="cell_0" rowspan="5">0</td>
+						<td id="0:3" class="cell_2V"></td>
+						<td id="3" class="cell_1">3</td>
+						<td id="3:6" class="cell_2V"></td>
+						<td id="6" class="cell_1">6</td>
+						<td id="6:9" class="cell_2V"></td>	
+						<td id="9" class="cell_1">9</td>
+						<td id="9:12" class="cell_2V"></td>	
+						<td id="12" class="cell_1">12</td>
+						<td id="12:15" class="cell_2V"></td>
+						<td id="15" class="cell_1">15</td>
+						<td id="15:18" class="cell_2V"></td>
+						<td id="18" class="cell_1">18</td>
+						<td id="18:21" class="cell_2V"></td>	
+						<td id="21" class="cell_1">21</td>
+						<td id="21:24" class="cell_2V"></td>	
+						<td id="24" class="cell_1">24</td>
+						<td id="24:27" class="cell_2V"></td>
+						<td id="27" class="cell_1">27</td>
+						<td id="27:30" class="cell_2V"></td>
+						<td id="30" class="cell_1">30</td>
+						<td id="30:33" class="cell_2V"></td>	
+						<td id="33" class="cell_1">33</td>
+						<td id="33:36" class="cell_2V"></td>	
+						<td id="36" class="cell_1">36</td>
+
+						<!-- right border -->
+						<td rowspan="5" class="cell_2V"></td>
+					</tr>
+
+					<tr>
+						<td id="0:2:3" class="cell_4"></td>
+						<td id="2:3" class="cell_2H"></td>
+						<td id="2:3:5:6" class="cell_4"></td>
+						<td id="5:6" class="cell_2H"></td>
+						<td id="5:6:8:9" class="cell_4"></td>
+						<td id="8:9" class="cell_2H"></td>
+						<td id="8:9:11:12" class="cell_4"></td>
+						<td id="11:12" class="cell_2H"></td>
+						<td id="11:12:14:15" class="cell_4"></td>
+						<td id="14:15" class="cell_2H"></td>
+						<td id="14:15:17:18" class="cell_4"></td>
+						<td id="17:18" class="cell_2H"></td>
+						<td id="17:18:20:21" class="cell_4"></td>
+						<td id="20:21" class="cell_2H"></td>
+						<td id="20:21:23:24" class="cell_4"></td>
+						<td id="23:24" class="cell_2H"></td>
+						<td id="23:24:26:27" class="cell_4"></td>
+						<td id="26:27" class="cell_2H"></td>
+						<td id="26:27:29:30" class="cell_4"></td>
+						<td id="29:30" class="cell_2H"></td>
+						<td id="29:30:32:33" class="cell_4"></td>
+						<td id="32:33" class="cell_2H"></td>
+						<td id="32:33:35:36" class="cell_4"></td>
+						<td id="35:36" class="cell_2H"></td>
+					</tr>
+					<tr>
+						<td id="0:2" class="cell_2V"></td>	
+						<td id="2" class="cell_1">2</td>
+						<td id="2:5" class="cell_2V"></td>	
+						<td id="5" class="cell_1">5</td>	
+						<td id="5:8" class="cell_2V"></td>	
+						<td id="8" class="cell_1">8</td>	
+						<td id="8:11" class="cell_2V"></td>	
+						<td id="11" class="cell_1">11</td>
+						<td id="11:14" class="cell_2V"></td>	
+						<td id="14" class="cell_1">14</td>
+						<td id="14:17" class="cell_2V"></td>
+						<td id="17" class="cell_1">17</td>	
+						<td id="17:20" class="cell_2V"></td>
+						<td id="20" class="cell_1">20</td>	
+						<td id="20:23" class="cell_2V"></td>
+						<td id="23" class="cell_1">23</td>
+						<td id="23:26" class="cell_2V"></td>
+						<td id="26" class="cell_1">26</td>
+						<td id="26:29" class="cell_2V"></td>
+						<td id="29" class="cell_1">29</td>	
+						<td id="29:32" class="cell_2V"></td>
+						<td id="32" class="cell_1">32</td>	
+						<td id="32:35" class="cell_2V"></td>
+						<td id="35" class="cell_1">35</td>
+					</tr>
+
+					<tr>
+						<td id="0:1:2" class="cell_4"></td>
+						<td id="1:2" class="cell_2H"></td>
+						<td id="1:2:4:5" class="cell_4"></td>
+						<td id="4:5" class="cell_2H"></td>
+						<td id="4:5:7:8" class="cell_4"></td>
+						<td id="7:8" class="cell_2H"></td>
+						<td id="7:8:10:11" class="cell_4"></td>
+						<td id="10:11" class="cell_2H"></td>
+						<td id="10:11:13:14" class="cell_4"></td>
+						<td id="13:14" class="cell_2H"></td>
+						<td id="13:14:16:17" class="cell_4"></td>
+						<td id="16:17" class="cell_2H"></td>
+						<td id="16:17:19:20" class="cell_4"></td>
+						<td id="19:20" class="cell_2H"></td>
+						<td id="19:20:22:23" class="cell_4"></td>
+						<td id="22:23" class="cell_2H"></td>
+						<td id="22:23:25:26" class="cell_4"></td>
+						<td id="25:26" class="cell_2H"></td>
+						<td id="25:26:28:29" class="cell_4"></td>
+						<td id="28:29" class="cell_2H"></td>
+						<td id="28:29:31:32" class="cell_4"></td>
+						<td id="31:32" class="cell_2H"></td>
+						<td id="31:32:34:35" class="cell_4"></td>
+						<td id="34:35" class="cell_2H"></td>
+					</tr>
+
+					<tr>
+						<td id="0:1" class="cell_2V"></td>
+						<td id="1" class="cell_1">1</td>
+						<td id="1:4" class="cell_2V"></td>
+						<td id="4" class="cell_1">4</td>	
+						<td id="4:7" class="cell_2V"></td>
+						<td id="7" class="cell_1">7</td>	
+						<td id="7:10" class="cell_2V"></td>
+						<td id="10" class="cell_1">10</td>
+						<td id="10:13" class="cell_2V"></td>
+						<td id="13" class="cell_1">13</td>
+						<td id="13:16" class="cell_2V"></td>
+						<td id="16" class="cell_1">16</td>	
+						<td id="16:19" class="cell_2V"></td>
+						<td id="19" class="cell_1">19</td>	
+						<td id="19:22" class="cell_2V"></td>
+						<td id="22" class="cell_1">22</td>
+						<td id="22:25" class="cell_2V"></td>
+						<td id="25" class="cell_1">25</td>
+						<td id="25:28" class="cell_2V"></td>
+						<td id="28" class="cell_1">28</td>	
+						<td id="28:31" class="cell_2V"></td>
+						<td id="31" class="cell_1">31</td>	
+						<td id="31:34" class="cell_2V"></td>
+						<td id="34" class="cell_1">34</td>
+					</tr>
+					<tr>
+						<!-- mid horiz border -->
+						<td></td>
+						<td colspan="25" class="cell_2H"></td>
+					</tr>
+					<!-- thirds -->
+					<tr>
+						<td colspan="2"></td>
+						<!-- mid left border -->
+						<td rowspan="3" class="cell_2V"></td>
+						<td id="1st12" colspan="7" class="cell_edge cell_thirds">1st 12</td>
+						<td class="cell_2V"></td>
+						<td id="2nd12" colspan="7" class="cell_edge cell_thirds">2nd 12</td>
+						<td class="cell_2V"></td>
+						<td id="3rd12" colspan="7" class="cell_edge cell_thirds">3rd 12</td>
+						<!-- mid right border -->
+						<td rowspan="3" class="cell_2V"></td>
+					</tr>
+					<!-- blank row-->
+					<tr>
+						<!-- mid horiz border -->
+						<td colspan="3"></td>
+						<td colspan="23" class="cell_2H"></td>
+					</tr>
+
+					<!-- halves -->
+					<tr>
+						<td colspan="3"></td>
+						<td id="odd" colspan="5" class="cell_edge">Odd</td>
+						<td class="cell_2V"></td>
+						<td id="red" colspan="5" class="cell_edge">Red</td>
+						<td class="cell_2V"></td>
+						<td id="black" colspan="5" class="cell_edge">Black</td>
+						<td class="cell_2V"></td>
+						<td id="even" colspan="5" class="cell_edge">Even</td>
+					</tr>
+					<tr>
+						<!-- bottom border -->
+						<td colspan="3"></td>
+						<td colspan="23" class="cell_2H"></td>
+					</tr>
+				</tbody>	
+			</table>
+			<br>
+		</section>
+
+		<hr>
+		<div>
+			<div style="width: 250px; float:left;">
+				<!-- Your Balance -->
+				<section class="frame">
+					<h1>Your Balance</h1>
+					<h1 id="id_Balance">1000</h1>
+				</section>
+				<br>
+				<!-- Bet Size -->
+				<section class="frame">
+					<h1>Bet Size</h1>
+					<h1 id="id_BetSize">1</h1>
+					<button onclick="setBetSize(1)" class="button">1</button>
+					<button onclick="setBetSize(10)" class="button">10</button>
+					<button onclick="setBetSize(100)" class="button">100</button>
+					<button onclick="clearBets()" class="button">Clear Bets</button>
+					<br><br>
+				</section>
+				<br>
+				<!-- Your Bets -->
+				<section class="frame">
+					<h1>Your Bets</h1>
+					<h3 id="id_YourBet" style="margin:10px; margin-bottom: 0px; text-align: left; height:150px; overflow-y:scroll;"></h3>
+				</section>
+			</div>
+
+			<div style="width: 250px; float:left; position: relative; left: 20px;">
+				<section class="frame" style="height: 185px">
+					<br>
+					<button onclick="spinWheel()" class="button" style="width: 150px; height: 50px;">Spin the Wheel!</button>
+					<h2 id="id_SpinWheelVal"></h2>
+				</section>
+				<br>
+				<section class="frame" style="height: 170px">
+					<h1>Your Winnings</h1>
+					<h3 id="id_Winnings"></h3>
+				</section>
+			</div>
+	
+		</div>
 
 		<section>
-
-			<article>
-				<h3>Table</h3>
-				<table id="id_RouletteTable">
-					<!--<script>drawTable();</script>-->
-					<tbody>
-						<!-- 0 - 36 -->
-						<tr>
-							<td id="0" rowspan="5" style="width:25px; text-align:center;">0</td>
-							<td id="3" class="cell_1">3</td>
-							<td id="3:6" class="cell_2V"></td>
-							<td id="6" class="cell_1">6</td>
-							<td id="6:9" class="cell_2V"></td>	
-							<td id="9" class="cell_1">9</td>
-							<td id="9:12" class="cell_2V"></td>	
-							<td id="12" class="cell_1">12</td>
-							<td id="12:15" class="cell_2V"></td>
-							<td id="15" class="cell_1">15</td>
-							<td id="15:18" class="cell_2V"></td>
-							<td id="18" class="cell_1">18</td>
-							<td id="18:21" class="cell_2V"></td>	
-							<td id="21" class="cell_1">21</td>
-							<td id="21:24" class="cell_2V"></td>	
-							<td id="24" class="cell_1">24</td>
-							<td id="24:27" class="cell_2V"></td>
-							<td id="27" class="cell_1">27</td>
-							<td id="27:30" class="cell_2V"></td>
-							<td id="30" class="cell_1">30</td>
-							<td id="30:33" class="cell_2V"></td>	
-							<td id="33" class="cell_1">33</td>
-							<td id="33:36" class="cell_2V"></td>	
-							<td id="36" class="cell_1">36</td>
-						</tr>
-
-						<tr>
-							<td id="2:3" class="cell_2H"></td>
-							<td id="2:3:5:6" class="cell_4"></td>
-							<td id="5:6" class="cell_2H"></td>
-							<td id="5:6:8:9" class="cell_4"></td>
-							<td id="8:9" class="cell_2H"></td>
-							<td id="8:9:11:12" class="cell_4"></td>
-							<td id="11:12" class="cell_2H"></td>
-							<td id="11:12:14:15" class="cell_4"></td>
-							<td id="14:15" class="cell_2H"></td>
-							<td id="14:15:17:18" class="cell_4"></td>
-							<td id="17:18" class="cell_2H"></td>
-							<td id="17:18:20:21" class="cell_4"></td>
-							<td id="20:21" class="cell_2H"></td>
-							<td id="20:21:23:24" class="cell_4"></td>
-							<td id="23:24" class="cell_2H"></td>
-							<td id="23:24:26:27" class="cell_4"></td>
-							<td id="26:27" class="cell_2H"></td>
-							<td id="26:27:29:30" class="cell_4"></td>
-							<td id="29:30" class="cell_2H"></td>
-							<td id="29:30:32:33" class="cell_4"></td>
-							<td id="32:33" class="cell_2H"></td>
-							<td id="32:33:35:36" class="cell_4"></td>
-							<td id="35:36" class="cell_2H"></td>
-						</tr>
-						<tr>
-							<td id="2" class="cell_1">2</td>
-							<td id="2:5" class="cell_2V"></td>	
-							<td id="5" class="cell_1">5</td>	
-							<td id="5:8" class="cell_2V"></td>	
-							<td id="8" class="cell_1">8</td>	
-							<td id="8:11" class="cell_2V"></td>	
-							<td id="11" class="cell_1">11</td>
-							<td id="11:14" class="cell_2V"></td>	
-							<td id="14" class="cell_1">14</td>
-							<td id="14:17" class="cell_2V"></td>
-							<td id="17" class="cell_1">17</td>	
-							<td id="17:20" class="cell_2V"></td>
-							<td id="20" class="cell_1">20</td>	
-							<td id="20:23" class="cell_2V"></td>
-							<td id="23" class="cell_1">23</td>
-							<td id="23:26" class="cell_2V"></td>
-							<td id="26" class="cell_1">26</td>
-							<td id="26:29" class="cell_2V"></td>
-							<td id="29" class="cell_1">29</td>	
-							<td id="29:32" class="cell_2V"></td>
-							<td id="32" class="cell_1">32</td>	
-							<td id="32:35" class="cell_2V"></td>
-							<td id="35" class="cell_1">35</td>
-						</tr>
-
-						<tr>
-							<td id="1:2" class="cell_2H"></td>
-							<td id="1:2:4:5" class="cell_4"></td>
-							<td id="4:5" class="cell_2H"></td>
-							<td id="4:5:7:8" class="cell_4"></td>
-							<td id="7:8" class="cell_2H"></td>
-							<td id="7:8:10:11" class="cell_4"></td>
-							<td id="10:11" class="cell_2H"></td>
-							<td id="10:11:13:14" class="cell_4"></td>
-							<td id="13:14" class="cell_2H"></td>
-							<td id="13:14:16:17" class="cell_4"></td>
-							<td id="16:17" class="cell_2H"></td>
-							<td id="16:17:19:20" class="cell_4"></td>
-							<td id="19:20" class="cell_2H"></td>
-							<td id="19:20:22:23" class="cell_4"></td>
-							<td id="22:23" class="cell_2H"></td>
-							<td id="22:23:25:26" class="cell_4"></td>
-							<td id="25:26" class="cell_2H"></td>
-							<td id="25:26:28:29" class="cell_4"></td>
-							<td id="28:29" class="cell_2H"></td>
-							<td id="28:29:31:32" class="cell_4"></td>
-							<td id="31:32" class="cell_2H"></td>
-							<td id="31:32:34:35" class="cell_4"></td>
-							<td id="34:35" class="cell_2H"></td>
-						</tr>
-
-						<tr>
-							<td id="1" class="cell_1">1</td>
-							<td id="1:4" class="cell_2V"></td>
-							<td id="4" class="cell_1">4</td>	
-							<td id="4:7" class="cell_2V"></td>
-							<td id="7" class="cell_1">7</td>	
-							<td id="7:10" class="cell_2V"></td>
-							<td id="10" class="cell_1">10</td>
-							<td id="10:13" class="cell_2V"></td>
-							<td id="13" class="cell_1">13</td>
-							<td id="13:16" class="cell_2V"></td>
-							<td id="16" class="cell_1">16</td>	
-							<td id="16:19" class="cell_2V"></td>
-							<td id="19" class="cell_1">19</td>	
-							<td id="19:22" class="cell_2V"></td>
-							<td id="22" class="cell_1">22</td>
-							<td id="22:25" class="cell_2V"></td>
-							<td id="25" class="cell_1">25</td>
-							<td id="25:28" class="cell_2V"></td>
-							<td id="28" class="cell_1">28</td>	
-							<td id="28:31" class="cell_2V"></td>
-							<td id="31" class="cell_1">31</td>	
-							<td id="31:34" class="cell_2V"></td>
-							<td id="34" class="cell_1">34</td>
-						</tr>
-
-						<!-- thirds -->
-						<tr>
-							<td style="border: none;"></td>
-							<td id="1st12" colspan="7" style="text-align:center;">1st 12</td>
-							<td style="border: none;"></td>
-							<td id="2nd12" colspan="7" style="text-align:center;">2nd 12</td>
-							<td style="border: none;"></td>
-							<td id="3rd12" colspan="7" style="text-align:center;">3rd 12</td>
-						</tr>
-
-						<!-- halves -->
-						<tr>
-							<td style="border: none;"></td>
-							<td id="odd" colspan="6" style="text-align:center;">Odd</td>
-							<td id="red" colspan="6" style="text-align:center;">Red</td>
-							<td id="black" colspan="5" style="text-align:center;">Black</td>
-							<td id="even" colspan="6" style="text-align:center;">Even</td>
-						</tr>
-					</tbody>	
-				</table>
-			</article>
-			<hr>
-			<article>
-				<h1>Your Balance</h1>
-				<h1 id="id_Balance">1000</h1>
-			</article>
-			<hr>
-			<article>
-				<h3>Bet Size</h3>
-				<h3 id="id_BetSize">1</h3>
-				<button onclick="setBetSize(1)">1</button>
-				<button onclick="setBetSize(10)">10</button>
-				<button onclick="setBetSize(100)">100</button>
-				<button onclick="clearBets()">Clear Bets</button>
-			</article>
-
-			<article>
-				<h3 id="id_YourBet"></h3>
-			</article>
-
-			<hr>
-			<article>
-				<button onclick="spinWheel()">Spin the Wheel!</button>
-				<h2 id="id_SpinWheelVal"></h2>
-				<h3 id="id_Winnings"></h3>
-			</article>
-
-			<article>
-				<!--Floating Images-->
-				<p id="id_Coins"></p>
-<!--			<img src="img\coin_small.png" width="25" height="25" style="position: absolute; top: 200px; left: 80px; pointer-events: none;">
-				<img src="img\wheel.png" width="100" height="100"> -->
-			</article>
+			<!--Floating Images-->
+			<p id="id_Coins"></p>
+			
+			<!-- roulette wheel -->
+			<img src="img\wheel_outer.png" width="350" height="350" style="position: absolute; top: 480px; left: 550px;">
+			<img id="id_WheelInner" src="img\wheel_inner.png" width="350" height="350" style="position: absolute; top: 480px; left: 550px;">
 		</section>
+
 	</div>
 </body>

@@ -1,28 +1,130 @@
-#id_RouletteTable *{
-    /*border-collapse: collapse;*/
-	padding: 0px, 0px, 0px, 0px;
-    margin: 0px, 0px, 0px, 0px;
+:root {
+	/* dimensions of numbers */
+	--Table_NumberH: 40px;
+	--Table_NumberW: 40px;
+	/* dimensions of inside numbers */
+	--Table_InnerH: 10px;
+	--Table_InnerW: 10px;
+	/* Border width */
+	--Table_BorderW: 3px;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(1080deg);
+	}
+}
+
+.rotate {
+	animation: rotation 3s infinite  ease-in-out; 
+}
+
+body {
+	font-family: 'Sofia';
+	font-size: 13px;
+}
+
+h1 {
+	font-size: 22px;
+}
+h2 {
+	font-size: 19px;
+}
+h3 {
+	font-size: 15px;
+}
+
+.button {
+	font-family: 'Roboto', sans-serif;
+	background-color: rgb(71, 101, 141);
+	color: white;
+	border-radius: 3px;
+}
+.button:hover {
+	background-color: rgba(71, 101, 141, 0.801);
+}
+
+.frame {
+	border: 3px solid black;
+	text-align: center;
+}
+
+#id_RouletteTableContainer {
+	font-family: 'Roboto', sans-serif;
+}
+
+#id_RouletteTable {
+	background-color: olivedrab;
+	border:	var(--Table_BorderW) solid white;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	
 }
 
 #id_RouletteTable tr, td {
-	border:	1px solid black;
+	/*border:	1px solid black;*/
+	font-size: 15px;
+}
+.cell_0 {
+	width: var(--Table_NumberW);
+	min-width: var(--Table_NumberW);
 }
 
 .cell_1 {
-	background-color: black;
-	color: white;
-	width: 40px;
-	height: 40px;
-	text-align: center;
+	width: var(--Table_NumberW);
+	min-width: var(--Table_NumberW);
+	height: var(--Table_NumberH);
 }
 .cell_2V {
-	width: 8px;
-	border-color: lightgray;
+	width: var(--Table_InnerW);
+	min-width: var(--Table_InnerW);
+	background-image: linear-gradient(white, white);
+	background-size: var(--Table_BorderW) 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 .cell_2H {
-	height: 8px;
-	border-color: lightgray;
+	height: var(--Table_InnerH);
+	background-image: linear-gradient(white, white);
+	background-size: 100% var(--Table_BorderW);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 .cell_4 {
-	border-color: lightgray;
+}
+
+.cell_edge {
+	height: var(--Table_NumberH);
+	text-align: center;
+}
+/*
+.cell_HLine {
+	background-color: white;
+	content: "";
+	display: block;
+	width:100%;
+	height:1px;
+	position:relative;
+	top: calc(var(--Table_NumberH) / 2);
+}*/
+/*
+.cell_HLine {
+	content: "";
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border-left: 3px solid white;
+	transform: translate(-50%);
+}*/
+
+.cell_HLine {
+	background-image: linear-gradient(white, white);
+	background-size: var(--Table_BorderW) 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
