@@ -31,9 +31,29 @@ function init() {
 	BUTTON_EVEN 	= 43;
 	// define a global flag for when wheel is spinning
 	window.wheelSpinning = false;
+
+	init_WheelImage();
 }
 
 onload = init;
+
+function init_WheelImage() {
+	var r = document.querySelector(':root');
+	var rs = getComputedStyle(r);
+
+	// centre of wheel
+	var xWheel = parseInt(rs.getPropertyValue('--Wheel_Left'));
+	var yWheel = parseInt(rs.getPropertyValue('--Wheel_Top'));
+	// ball dimensions
+	var wWheel = parseInt(rs.getPropertyValue('--Wheel_W'));
+	var hWheel = parseInt(rs.getPropertyValue('--Wheel_H'));
+
+	r.style.setProperty('--Wheel_Centre_X', xWheel + wWheel/2 + "px");
+	r.style.setProperty('--Wheel_Centre_Y', yWheel + hWheel/2 + "px");
+	r.style.setProperty('--Ball_PosRadius', hWheel/4 + 1 + "px");
+
+	setBallPos(0);
+}
 
 function hoverFalse() {
 	
@@ -127,6 +147,7 @@ function clearBets() {
 	betArray.fill(0);
 	// clear bet display list
 	document.getElementById("id_YourBet").innerHTML = "";
+	document.getElementById("id_SpinWheelMsg").innerHTML = "";
 	document.getElementById("id_SpinWheelVal").innerHTML = "";
 	document.getElementById("id_Winnings").innerHTML = "";
 	// clear coin images
@@ -321,13 +342,91 @@ function getSpend() {
 	return spent;
 }
 
-function stopWheel() {
+
+function setBallPos(ang) {
+
+	var r = document.querySelector(':root');
+	var rs = getComputedStyle(r);
+
+	// get ball dimensions
+	var xBall = parseInt(rs.getPropertyValue('--Ball_X'));
+	var yBall = parseInt(rs.getPropertyValue('--Ball_Y'));
+	// get centre of wheel
+	var xCentre = parseInt(rs.getPropertyValue('--Wheel_Centre_X'));
+	var yCentre = parseInt(rs.getPropertyValue('--Wheel_Centre_Y'));
+	// get ball dimensions
+	var wBall = parseInt(rs.getPropertyValue('--Ball_W'));
+	var hBall = parseInt(rs.getPropertyValue('--Ball_H'));
+	// get ball radius to centre of wheel
+	var rBall = parseInt(rs.getPropertyValue('--Ball_PosRadius'));
+
+	// calculate x/y position of ball from angle
+	var x = rBall * -Math.sin(ang);
+	var y = rBall * Math.cos(ang);
+	// set x/y position of ball
+	r.style.setProperty('--Ball_X', xCentre - wBall/2 - x + "px");
+	r.style.setProperty('--Ball_Y', yCentre - hBall/2 - y + "px");
+}
+
+function getWheelAngle(val) {
+	// angle between each number
+	dAng = 2 * Math.PI / 37;
+	
+	switch (val) {
+		case 0: 	return 0;
+		case 32: 	return 1*dAng;
+		case 15: 	return 2*dAng;
+		case 19: 	return 3*dAng;
+		case 4: 	return 4*dAng;
+		case 21: 	return 5*dAng;
+		case 2: 	return 6*dAng;
+		case 25: 	return 7*dAng;
+		case 17: 	return 8*dAng;
+		case 34: 	return 9*dAng;
+		case 6: 	return 10*dAng;
+		case 27: 	return 11*dAng;
+		case 13: 	return 12*dAng;
+		case 36: 	return 13*dAng;
+		case 11: 	return 14*dAng;
+		case 30: 	return 15*dAng;
+		case 8: 	return 16*dAng;
+		case 23: 	return 17*dAng;
+		case 10: 	return 18*dAng;
+
+		case 5: 	return 19*dAng;
+		case 24: 	return 20*dAng;
+		case 16: 	return 21*dAng;
+		case 33: 	return 22*dAng;
+		case 1: 	return 23*dAng;
+		case 20: 	return 24*dAng;
+		case 14: 	return 25*dAng;
+		case 31: 	return 26*dAng;
+		case 9: 	return 27*dAng;
+		case 22: 	return 28*dAng;
+		case 18: 	return 29*dAng;
+		case 29: 	return 30*dAng;
+		case 7: 	return 31*dAng;
+		case 28: 	return 32*dAng;
+		case 12: 	return 33*dAng;
+		case 35: 	return 34*dAng;
+		case 3: 	return 35*dAng;
+		case 26: 	return 36*dAng;
+
+		default:
+			return 0;
+	}
+}
+
+function stopWheel(winningNum) {
 
 	var DEBUG = false;
 
 	// stop rotating wheel
-	document.getElementById("id_WheelInner").classList.remove("rotate");
+	document.getElementById("id_WheelInner").classList.remove("rotateWheel");
+	document.getElementById("id_Ball").classList.remove("rotateBall");
 
+	setBallPos(getWheelAngle(winningNum));
+	
 	// check player has enough balance
 	var currentBalance = parseFloat(document.getElementById("id_Balance").innerHTML);
 	var spent = getSpend();
@@ -336,8 +435,8 @@ function stopWheel() {
 	const WINNINGS_THIRDS 		= 3; 	// 3:1
 	const WINNINGS_HALF 		= 2; 	// 2:1
 
-	var winningNum = getRandomInt(36+1);
-	document.getElementById("id_SpinWheelVal").innerHTML = "And the winning number is...<br><h1>" + winningNum.toString() + "</h1>";
+	document.getElementById("id_SpinWheelMsg").innerHTML = "And the winning number is...";
+	document.getElementById("id_SpinWheelVal").innerHTML = winningNum.toString();
 	var winnings = 0;
 	
 	winningMessage = document.getElementById("id_Winnings");
@@ -436,13 +535,43 @@ function spinWheel() {
 		return;
 	}
 
+
+	var r = document.querySelector(':root');
+	var rs = getComputedStyle(r);
+
+	// calculate x/y position of ball from angle
+	var prevWinningNumber = parseInt(document.getElementById("id_SpinWheelVal").innerHTML);
+	var prevAngle = getWheelAngle(prevWinningNumber);
+	
+
+	// get ball dimensions
+	var wBall = parseInt(rs.getPropertyValue('--Ball_W'));
+	var hBall = parseInt(rs.getPropertyValue('--Ball_H'));
+	// get ball radius to centre of wheel
+	var rBall = parseInt(rs.getPropertyValue('--Ball_PosRadius'));
+	
+	var x = rBall * -Math.sin(prevAngle);
+	var y = rBall * Math.cos(prevAngle);
+
+	r.style.setProperty('--Ball_RotateOrig_X', wBall/2 + x + "px");
+	r.style.setProperty('--Ball_RotateOrig_Y', hBall/2 + y + "px");
+	
+
+
+
+	var winningNum = getRandomInt(36+1);
+
+	// set end angle of animation
+	var ang = getWheelAngle(winningNum);
+	r.style.setProperty('--Ball_EndAngle', -ang + prevAngle + "rad");
+
+
 	// animate wheel
 	wheelSpinning = true;
-	document.getElementById("id_WheelInner").classList.add("rotate");
-	setTimeout(stopWheel, 3000);
+	document.getElementById("id_WheelInner").classList.add("rotateWheel");
+	document.getElementById("id_Ball").classList.add("rotateBall");
+	setTimeout(stopWheel.bind(null, winningNum), 3000);
 }
-
-
 
 	//localStorage.setItem("bets", JSON.stringify(res));
 /*

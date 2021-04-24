@@ -1,15 +1,36 @@
 :root {
 	/* dimensions of numbers */
-	--Table_NumberH: 40px;
 	--Table_NumberW: 40px;
+	--Table_NumberH: 40px;
 	/* dimensions of inside numbers */
-	--Table_InnerH: 10px;
 	--Table_InnerW: 10px;
+	--Table_InnerH: 10px;
 	/* Border width */
 	--Table_BorderW: 3px;
+
+	/* roulette wheel */
+	--Wheel_Left: 550px;
+	--Wheel_Top: 480px;
+	--Wheel_W: 350px;
+	--Wheel_H: 350px;
+	--Wheel_Centre_X: 0; /*calc(var(--Wheel_Left) + var(--Wheel_W)/2);*/
+	--Wheel_Centre_Y: 0; /*calc(var(--Wheel_Top) + var(--Wheel_H)/2);*/
+	/* roulette wheel ball */
+	--Ball_W: 12px;
+	--Ball_H: 12px;
+	--Ball_PosRadius: 0; /*calc((var(--Wheel_H) / 4) + 1px);*/
+	--Ball_X: 0; /*calc(var(--Wheel_Centre_X) - var(--Ball_W)/2);*/
+	--Ball_Y: 0; /*calc(var(--Wheel_Centre_Y) - var(--Ball_H)/2 - var(--Ball_PosRadius));*/
+	--Ball_RotateOrig_X: 0; /* calculated */
+	--Ball_RotateOrig_Y: 0; /* calculated */
+	--Ball_EndAngle: 180deg;
+
+	--StartAngle: 0deg;
+	--EndAngle: 0deg;
+	
 }
 
-@keyframes rotation {
+@keyframes rotateWheelAnim {
 	from {
 		transform: rotate(0deg);
 	}
@@ -18,8 +39,55 @@
 	}
 }
 
-.rotate {
-	animation: rotation 3s infinite  ease-in-out; 
+
+.rotateWheel {
+	animation: rotateWheelAnim 3s 1 ease-in-out; 
+}
+
+/*
+@keyframes rotateWheelAnim {
+	from {
+		transform: rotate( var(--StartAngle));
+	}
+	to {
+		transform: rotate( var(--EndAngle));
+	}
+}
+.rotateWheel {
+	animation: rotateWheelAnim 3s ease-in-out forwards; 
+}*/
+
+.rouletteWheel {
+	width: var(--Wheel_W);
+	height: var(--Wheel_H);
+	position: absolute; 
+	top: var(--Wheel_Top); 
+	left: var(--Wheel_Left);
+}
+
+@keyframes rotateBallAnim {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(calc(-1080deg - var(--Ball_EndAngle)));
+	}
+}
+
+.rotateBall {
+	position: absolute;
+	transform-origin: var(--Ball_RotateOrig_X) var(--Ball_RotateOrig_Y);
+	animation: rotateBallAnim 3s 1 ease-in-out; 
+
+}
+
+#id_Ball {
+	width: var(--Ball_W);
+	height: var(--Ball_H);
+	/*visibility: hidden; */
+	position: absolute; 
+	left: var(--Ball_X);
+	top: var(--Ball_Y);
 }
 
 body {

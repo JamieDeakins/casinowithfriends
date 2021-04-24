@@ -266,7 +266,8 @@
 				<section class="frame" style="height: 185px">
 					<br>
 					<button onclick="spinWheel()" class="button" style="width: 150px; height: 50px;">Spin the Wheel!</button>
-					<h2 id="id_SpinWheelVal"></h2>
+					<h2 id="id_SpinWheelMsg"></h2>
+					<h1 id="id_SpinWheelVal"></h1>
 				</section>
 				<br>
 				<section class="frame" style="height: 170px">
@@ -277,13 +278,18 @@
 	
 		</div>
 
+		<!--Floating Images-->
 		<section>
-			<!--Floating Images-->
+			<!-- coins -->
 			<p id="id_Coins"></p>
 			
 			<!-- roulette wheel -->
-			<img src="img\wheel_outer.png" width="350" height="350" style="position: absolute; top: 480px; left: 550px;">
-			<img id="id_WheelInner" src="img\wheel_inner.png" width="350" height="350" style="position: absolute; top: 480px; left: 550px;">
+			<img src="img\wheel_outer.png" class="rouletteWheel">
+			<img src="img\wheel_inner.png" class="rouletteWheel" id="id_WheelInner">
+		
+			<!-- ball -->
+			<img src="img\ball.png" id="id_Ball">
+		
 		</section>
 
 	</div>

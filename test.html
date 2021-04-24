@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	<!-- character set -->
+	<meta charset="UTF-8"/>
+	<!-- site description -->
+	<meta name="description" content="Play roulette with friends!"/>
+	<!-- keywords for search engines -->
+	<meta name="keywords" content="roulette, play, friends"/>
+	<!-- how page should be indexed by search engines -->
+	<meta name="robots" content="index,follow"/>
+	<!-- add javascript -->
+	<script src="functions.js"></script>
+	<!-- base path for links -->
+	<base href=""/>
+	<!-- css -->
+	<link rel="stylesheet" href="style.css"/>
+	<!-- icon -->
+	<link rel="icon" href="img\icon.ico"/>
+
+	<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+	<title>Roulette With Friends!</title>
+
+</head>
+
+<script>
+     function stopRotate() {
+	    document.getElementById("id_WheelInner").classList.remove("rotateWheel");
+    }
+
+    function rotateButton() {
+
+        var r = document.querySelector(':root');
+	    r.style.setProperty('--StartAngle', 0 + "rad");
+	    r.style.setProperty('--EndAngle', 150 + "rad");
+
+
+        var a = document.getElementById("id_WheelInner");
+        a.classList.add("rotateWheel");
+        setTimeout(stopRotate, 3000);
+    }
+    
+    function rotateButton2() {
+
+        var r = document.querySelector(':root');
+        r.style.setProperty('--StartAngle', 150 + "rad");
+        r.style.setProperty('--EndAngle', 300 + "rad");
+
+
+        var a = document.getElementById("id_WheelInner");
+        a.classList.add("rotateWheel");
+        setTimeout(stopRotate, 3000);
+    }
+</script>
+
+<body>
+	<div>
+        <button onclick="rotateButton()" class="button" style="width: 150px; height: 50px;">Spin the Wheel!</button>
+        <button onclick="rotateButton2()" class="button" style="width: 150px; height: 50px;">Spin the Wheel!</button>
+
+        <!-- roulette wheel -->
+        <img src="img\wheel_outer.png" class="rouletteWheel">
+        <img src="img\wheel_inner.png" class="rouletteWheel" id="id_WheelInner">
+		
+
+	</div>
+</body>
