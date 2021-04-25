@@ -70,14 +70,14 @@
 		transform: rotate(0deg);
 	}
 	to {
-		transform: rotate(calc(-1080deg - var(--Ball_EndAngle)));
+		transform: rotate(calc(-1440deg - var(--Ball_EndAngle)));
 	}
 }
 
 .rotateBall {
 	position: absolute;
 	transform-origin: var(--Ball_RotateOrig_X) var(--Ball_RotateOrig_Y);
-	animation: rotateBallAnim 3s 1 ease-in-out; 
+	animation: rotateBallAnim 4s 1 ease-in-out; 
 
 }
 

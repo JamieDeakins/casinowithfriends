@@ -418,11 +418,14 @@ function getWheelAngle(val) {
 }
 
 function stopWheel(winningNum) {
-
-	var DEBUG = false;
-
 	// stop rotating wheel
 	document.getElementById("id_WheelInner").classList.remove("rotateWheel");
+}
+
+function stopBall(winningNum) {
+
+	var DEBUG = false;
+	// stop rotating Ball
 	document.getElementById("id_Ball").classList.remove("rotateBall");
 
 	setBallPos(getWheelAngle(winningNum));
@@ -571,6 +574,7 @@ function spinWheel() {
 	document.getElementById("id_WheelInner").classList.add("rotateWheel");
 	document.getElementById("id_Ball").classList.add("rotateBall");
 	setTimeout(stopWheel.bind(null, winningNum), 3000);
+	setTimeout(stopBall.bind(null, winningNum), 4000);
 }
 
 	//localStorage.setItem("bets", JSON.stringify(res));
